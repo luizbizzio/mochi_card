@@ -161,19 +161,5 @@ SnapExtensions.primitives.set(
   }
 );
 
-SnapExtensions.primitives.set(
-  'mc_decodeFrame(frame)',
-  function (frame, proc) {
-    if (mc_isValidFrame(frame) {
-      var_set(mc_fwVersion, mc_split(frame, 0));
-      var_set(mc_temp, mc_split(frame, 1)); 
-      var_set(mc_hum, mc_split(frame, 2)); 
-      var_set(mc_A0, mc_split(frame, 3));
-      var_set(mc_A1, mc_split(frame, 4));
-      var_set(mc_A2, mc_split(frame, 5));
-      var_set(mc_A3, mc_split(frame, 6));
-      var_set(mc_scrollingDone, mc_split(frame, 7));
-    }
-  }
-);
+
 
