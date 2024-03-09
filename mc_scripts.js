@@ -150,6 +150,7 @@ SnapExtensions.primitives.set(
     } catch(e) {
       return false;
     }
+  }
 );
 
 SnapExtensions.primitives.set(
