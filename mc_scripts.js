@@ -145,12 +145,11 @@ SnapExtensions.primitives.set(
 SnapExtensions.primitives.set(
   'mc_isValidFrame(frame)',
   function (frame, proc) {
-    if (typeof(frame) === "boolean") {
-      return false;
-    } else {
+    try {
       return (frame.slice(0,3) === '#0A');
+    } catch(e) {
+      return false;
     }
-  }
 );
 
 SnapExtensions.primitives.set(
