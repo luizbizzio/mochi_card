@@ -98,7 +98,8 @@ SnapExtensions.primitives.set(
     function (baud, buf, proc) {
         var acc = proc.context.accumulator;
         // define a filter for CH340 serial to USB device
-        const filter =  { usbVendorId: 0x1A86, usbProductId: 0x7523 };
+        const filter_mc2 =  { usbVendorId: 0x1A86, usbProductId: 0x7523 }; // CH340G usb to serial present int MC2
+        const filter_mc3 =  { usbVendorId: 0x0403, usbProductId: 0x6001 }; // FTDI usb to serial present int MC3
                         
         async function forceClose(port){
             try {
@@ -119,7 +120,7 @@ SnapExtensions.primitives.set(
             (async function (baud) {
                 try {
                     var port;
-                    port = await navigator.serial.requestPort({ filters: [filter] });
+                    port = await navigator.serial.requestPort({ filters: [filter_mc2, filter_mc3] });
                     await forceClose(port);
                     await port.open({
                         baudRate: baud,
